@@ -29,14 +29,12 @@ class Library:
             if book.title == title and book.is_available():
                 book.check_out()
                 return
-        # No print here, main.py handles output
 
     def return_book(self, title):
         for book in self._books:
             if book.title == title and not book.is_available():
                 book.return_book()
                 return
-        # No print here, main.py handles output
 
     def list_available_books(self):
         for book in self._books:
