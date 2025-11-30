@@ -18,19 +18,20 @@ class Library:
     def add_book(self,book):
         self._books.append(book)
     
-    def check_out_book(self,title):
+    def check_out_book(self, title):
         for book in self._books:
-            if book.title== title and book.is_available():
+            if book.title == title and book.is_available():
                 book.check_out()
-                return
-        print(f"Book '{title}' not available.")
+                return True
+        return False
 
-    def return_book(self,title):
+    def return_book(self, title):
         for book in self._books:
-            if book.title== title and not book.is_available():
+            if book.title == title and not book.is_available():
                 book.return_book()
-                return
-        print(f"Book '{title}' was not checked out.")
+                return True
+        return False
+
     
     def list_available_books(self):
         for book in self._books:
